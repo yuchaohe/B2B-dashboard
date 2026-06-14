@@ -108,3 +108,14 @@ channel:
 #
 # codex:
 #   dispatch_mode: inline  # or "sub-agent" to dispatch trellis-* sub-agents
+
+#-------------------------------------------------------------------------------
+# Registry
+#-------------------------------------------------------------------------------
+
+# Source used to install .trellis/spec. trellis update refreshes this
+# hash-tracked spec template while preserving local edits through the
+# normal update conflict flow.
+registry:
+  spec:
+    source: git@github.com:yuchaohe/my-terllis-spec.git
