@@ -15,9 +15,10 @@ This directory contains guidelines for backend development. Fill in each file wi
 | Guide | Description | Status |
 |-------|-------------|--------|
 | [Directory Structure](./directory-structure.md) | Module organization and file layout | To fill |
+| [API Shape](./api-shape.md) | HTTP endpoint conventions and response contracts | Defined for week 1 |
 | [Database Guidelines](./database-guidelines.md) | ORM patterns, queries, migrations | To fill |
-| [Error Handling](./error-handling.md) | Error types, handling strategies | To fill |
-| [Quality Guidelines](./quality-guidelines.md) | Code standards, forbidden patterns | To fill |
+| [Error Handling](./error-handling.md) | Error types, handling strategies | Defined for week 1 |
+| [Quality Guidelines](./quality-guidelines.md) | Code standards, forbidden patterns | Defined for week 1 |
 | [Logging Guidelines](./logging-guidelines.md) | Structured logging, log levels | To fill |
 
 ---
@@ -36,3 +37,13 @@ The goal is to help AI assistants and new team members understand how YOUR proje
 ---
 
 **Language**: All documentation should be written in **English**.
+
+## Week-1 Minimum Scope
+
+For this project's first week, the minimum backend rules to consult before implementation are:
+
+- [API Shape](./api-shape.md)
+- [Error Handling](./error-handling.md)
+- [Quality Guidelines](./quality-guidelines.md)
+
+`directory-structure.md`, `database-guidelines.md`, and `logging-guidelines.md` can be expanded once the codebase grows beyond the initial shell.

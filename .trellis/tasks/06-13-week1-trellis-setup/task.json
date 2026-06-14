@@ -1,0 +1,28 @@
+{
+  "id": "week1-trellis-setup",
+  "name": "week1-trellis-setup",
+  "title": "Plan week-1 Trellis setup for B2B dashboard",
+  "description": "",
+  "status": "planning",
+  "dev_type": null,
+  "scope": null,
+  "package": null,
+  "priority": "P2",
+  "creator": "yuchao.he",
+  "assignee": "yuchao.he",
+  "createdAt": "2026-06-13",
+  "completedAt": null,
+  "branch": null,
+  "base_branch": "main",
+  "worktree_path": null,
+  "commit": null,
+  "pr_url": null,
+  "subtasks": [],
+  "children": [
+    "06-13-admin-overview-shell"
+  ],
+  "parent": null,
+  "relatedFiles": [],
+  "notes": "",
+  "meta": {}
+}
