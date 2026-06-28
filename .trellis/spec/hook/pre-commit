@@ -1,0 +1,53 @@
+#!/bin/bash
+
+ALLOWLIST=".trellis/auth/app-allowlist.json"
+
+if [ ! -f "$ALLOWLIST" ]; then
+  echo "⚠️ 没找到权限清单，跳过校验"
+  exit 0
+fi
+
+DEVELOPER=$(git config user.email)
+
+# 拿到本次提交改了的所有文件
+CHANGED_FILES=$(git diff --cached --name-only)
+
+# 用来记录已经检查过的模块（避免同一个模块改了多个文件重复校验）
+CHECKED_MODULES=""
+
+for FILE in $CHANGED_FILES; do
+  # 跳过根目录的文件（如 pom.xml、README.md、.gitignore 等）
+  # 这些不属于任何子模块，如果你也想管，可以把它们归入"父应用"
+  if [[ "$FILE" != */* ]]; then
+    echo "ℹ️ 根目录文件 $FILE 跳过模块权限校验（如需管控可归入 b2b-dashboard 父应用）"
+    continue
+  fi
+
+  # 取第一段目录名 = 模块名
+  MODULE=$(echo "$FILE" | cut -d'/' -f1)
+
+  # 去重：同一个模块只校验一次
+  if echo "$CHECKED_MODULES" | grep -qw "$MODULE"; then
+    continue
+  fi
+  CHECKED_MODULES="$CHECKED_MODULES $MODULE"
+
+  # 用 jq 查清单：这个人在不在允许列表里？
+  ALLOWED=$(jq -r --arg mod "$MODULE" '.apps[$mod].developers // [] | index("'"$DEVELOPER"'")' "$ALLOWLIST")
+
+  if [ "$ALLOWED" = "null" ]; then
+    echo ""
+    echo "❌ 权限不足！"
+    echo "   开发者: $DEVELOPER"
+    echo "   模块:   $MODULE"
+    echo "   文件:   $FILE"
+    echo ""
+    echo "   你不在 $MODULE 的 developers 列表中。"
+    echo "   请联系管理员修改 .trellis/auth/app-allowlist.json"
+    exit 1
+  fi
+
+  echo "✅ $DEVELOPER 允许提交模块: $MODULE"
+done
+
+exit 0
