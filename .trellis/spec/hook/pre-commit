@@ -1,6 +1,6 @@
 #!/bin/bash
 
-ALLOWLIST=".trellis/auth/app-allowlist.json"
+ALLOWLIST=".trellis/spec/hook/app-allowlist.json"
 
 if [ ! -f "$ALLOWLIST" ]; then
   echo "⚠️ 没找到权限清单，跳过校验"
