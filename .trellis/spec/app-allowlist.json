@@ -1,0 +1,8 @@
+{
+  "apps": {
+    "order-service": {
+      "path": "apps/order-service/",
+      "developers": ["xiaoming@company.com"]
+    }
+  }
+}

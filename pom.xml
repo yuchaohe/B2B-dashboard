@@ -15,7 +15,6 @@
     <artifactId>b2b-dashboard</artifactId>
     <version>1.0.0-SNAPSHOT</version>
     <packaging>pom</packaging>
-
     <name>b2b-dashboard</name>
     <description>Standard Spring Cloud multi-module project scaffold for the B2B dashboard.</description>
 
