@@ -118,4 +118,5 @@ channel:
 # normal update conflict flow.
 registry:
   spec:
-    source: git@github.com:yuchaohe/my-terllis-spec.git
+    source: gh:yuchaohe/my-terllis-spec/marketplace
+    template: my-spec-demo1
