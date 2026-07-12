@@ -9,7 +9,6 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 @EnableDiscoveryClient
 @SpringBootApplication
 public class B2bOrderServiceApplication {
-    gi
     public static void main(String[] args) {
         SpringApplication.run(B2bOrderServiceApplication.class, args);
     }
